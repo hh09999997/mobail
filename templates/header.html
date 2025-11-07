@@ -1,7 +1,11 @@
 <!-- 🧭 header.html -->
 <header>
   <style>
+    /* 🎨 إعدادات الشريط العلوي */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background: linear-gradient(90deg, #00b4d8, #48cae4);
       color: white;
       padding: 15px 40px;
@@ -16,8 +20,11 @@
       font-size: 26px;
       font-weight: bold;
       letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
+    /* 🔍 شريط البحث */
     .search-bar {
       flex: 1;
       margin: 0 40px;
@@ -31,6 +38,11 @@
       border: none;
       outline: none;
       font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      box-shadow: 0 0 8px #90e0ef;
     }
 
     .search-bar button {
@@ -49,8 +61,10 @@
 
     .search-bar button:hover {
       background: #0077b6;
+      transform: scale(1.1);
     }
 
+    /* 🔗 روابط التنقل */
     .nav-icons a {
       color: white;
       text-decoration: none;
@@ -62,8 +76,68 @@
     .nav-icons a:hover {
       color: #caf0f8;
     }
+
+    /* 🟩 أزرار الدخول والتسجيل والخروج */
+    .auth-buttons a {
+      margin-left: 15px;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .btn-login {
+      background: #0077b6;
+      color: white;
+    }
+
+    .btn-login:hover {
+      background: transparent;
+      border-color: white;
+    }
+
+    .btn-register {
+      background: #90e0ef;
+      color: #03045e;
+    }
+
+    .btn-register:hover {
+      background: #caf0f8;
+      color: #0077b6;
+    }
+
+    .btn-logout {
+      background: #d90429;
+      color: white;
+    }
+
+    .btn-logout:hover {
+      background: #ef233c;
+      transform: scale(1.05);
+    }
+
+    /* 📱 تحسين العرض على الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      .search-bar {
+        width: 100%;
+        margin: 0;
+      }
+      .nav-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
   </style>
 
+  <!-- ✅ عناصر الشريط -->
   <div class="logo">📱 Mobail Store</div>
 
   <div class="search-bar">
@@ -73,7 +147,17 @@
 
   <div class="nav-icons">
     <a href="#">🛒 السلة</a>
-    <a href="#">👤 حسابي</a>
     <a href="#">📞 تواصل معنا</a>
+  </div>
+
+  <div class="auth-buttons">
+    {% if user.is_authenticated %}
+      <!-- ✅ يظهر فقط إذا كان المستخدم مسجلاً الدخول -->
+      <a href="{% url 'logout' %}" class="btn-logout">🚪 تسجيل الخروج</a>
+    {% else %}
+      <!-- 🔐 يظهر فقط إذا لم يكن مسجلاً الدخول -->
+      <a href="{% url 'accounts:login' %}" class="btn-login">تسجيل الدخول</a>
+      <a href="{% url 'accounts:register' %}" class="btn-register">إنشاء حساب</a>
+    {% endif %}
   </div>
 </header>

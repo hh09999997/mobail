@@ -1,9 +1,9 @@
-# users/urls.py
-
 from django.urls import path
+from . import views
 
-app_name = 'users'
+app_name = 'accounts'
 
 urlpatterns = [
-    # سيتم إضافة المسارات (paths) الخاصة بالمستخدمين لاحقًا
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
 ]
