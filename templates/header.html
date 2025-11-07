@@ -1,0 +1,79 @@
+<!-- 🧭 header.html -->
+<header>
+  <style>
+    header {
+      background: linear-gradient(90deg, #00b4d8, #48cae4);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Cairo', sans-serif;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 40px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 45px 10px 15px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-bar button {
+      position: absolute;
+      right: 8px;
+      top: 7px;
+      background: #023e8a;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: #0077b6;
+    }
+
+    .nav-icons a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-icons a:hover {
+      color: #caf0f8;
+    }
+  </style>
+
+  <div class="logo">📱 Mobail Store</div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="ابحث عن جوالك المفضل..." />
+    <button>🔍</button>
+  </div>
+
+  <div class="nav-icons">
+    <a href="#">🛒 السلة</a>
+    <a href="#">👤 حسابي</a>
+    <a href="#">📞 تواصل معنا</a>
+  </div>
+</header>
